@@ -1,6 +1,6 @@
 #CAPSTONE1 : MOVIELENS DATA
 #############################################################
-# Create edx set, validation set, and submission file
+# Create edx set and validation set
 #############################################################
  
 # Note: this process could take a couple of minutes
