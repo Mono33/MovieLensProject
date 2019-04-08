@@ -130,7 +130,7 @@ library(h2o)
 
 
 #Load data
-load("EnvCapstone2.RData")
+load("EnvCapstone1.RData")   #Load output of Capstone_Movielens_data.R
 
 ```
 
