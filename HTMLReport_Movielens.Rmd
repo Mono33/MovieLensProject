@@ -1258,7 +1258,11 @@ summary(gbdt_2)
 gbdt_3 <- h2o.gbm( x = c("movieId","userId") ,
            y = "rating" , 
            training_frame = train , 
-           nfolds = 3) 
+           nfolds = 3,
+           seed=1,
+           keep_cross_validation_predictions = TRUE,
+           fold_assignment = "Random") 
+
 
 summary(gbdt_3)
 
@@ -1310,7 +1314,10 @@ rf_3 <- h2o.randomForest(
   training_frame = train,       
   x= c("movieId" ,"userId"),                      
   y= "rating", 
-  nfolds=3
+  nfolds=3,
+  seed=1,
+  keep_cross_validation_predictions = TRUE,
+  fold_assignment = "Random"
 )
 
 summary(rf_3)
