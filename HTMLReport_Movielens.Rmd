@@ -1,10 +1,15 @@
 ---
 title: "Capstone1: MovieLens project"
+knit: (function(input_file, encoding) {
+  out_dir <- 'docs';
+  rmarkdown::render(input_file,
+                    encoding=encoding,
+                    output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
 author: "Louis Mono"
 date: "March, 2019"
 output:
   html_document:
-    theme: cerulean
+    theme: ceruleangit ch
     highlight: pygments
     bibliography: bibliography.bib
     csl: biomed-central.csl
@@ -1082,7 +1087,9 @@ rmse_slopeone
 
 
 
-```{r,warning=FALSE,message=FALSE, comment=NA, null_prefix = TRUE}
+
+```{r,warning=FALSE,message=FALSE}
+
 #Before to perform MF method, i clear unusued memory
 invisible(gc())
 
@@ -1246,13 +1253,14 @@ gbdt_1 <- h2o.gbm( x = c("movieId","userId","n.movies_byUser","n.users_bymovie")
 summary(gbdt_1)
 
 #second gbm model :  ntrees = 100, max depth = 5, learn rate = 0.1 , nfolds = 5 
-gbdt_2 <- h2o.gbm( x = c("movieId","userId") ,
-           y = "rating" , 
-           training_frame = train , 
-           ntrees = 100,
-           nfolds = 5) 
+# gbdt_2 <- h2o.gbm( x = c("movieId","userId") ,
+#            y = "rating" , 
+#            training_frame = train , 
+#            ntrees = 100,
+#            nfolds = 5) 
+# 
+# summary(gbdt_2)
 
-summary(gbdt_2)
 
 #third gbm model :  ntrees = 50, max depth = 5, learn rate = 0.1 , nfolds = 3 
 gbdt_3 <- h2o.gbm( x = c("movieId","userId") ,
@@ -1298,16 +1306,17 @@ rf1 <- h2o.randomForest(
 summary(rf1)
 
 # second rf model : ntrees = 50, max.deptu = 20 ,  nfolds = 5
-rf2 <- h2o.randomForest(        
-  training_frame = train,       
-  x= c("movieId" ,"userId", "n.movies_byUser","n.users_bymovie"),                      
-  y= "rating",                         
-  ntrees = 50,                 
-  max_depth = 20,
-  nfolds = 5
-  )
+# rf2 <- h2o.randomForest(        
+#   training_frame = train,       
+#   x= c("movieId" ,"userId", "n.movies_byUser","n.users_bymovie"),                      
+#   y= "rating",                         
+#   ntrees = 50,                 
+#   max_depth = 20,
+#   nfolds = 5
+#   )
+# 
+# summary(rf2)
 
-summary(rf2)
 
 #third rf model : ntrees = 50, max.depth = 20 , nfolds = 3
 rf_3 <- h2o.randomForest(        
@@ -1375,13 +1384,15 @@ We observed that the best gbdt and rf models (gbdt_3 and rf_3) have the lowest R
 
 <br>
 
+
 ##### <span style="color:red">1.2 Increasing model performance?</span>
 
 
 Based on the differents RMSE's values we found for Linear regression models, recommenders algorithms and Ensemble models, we choose the two candidates which best predict ratings on the validation set : Linear regression model with Regularized movie + user effect (i) and Matrix factorization with stochastic gradient (ii).
 
 
-```{r,echo=FALSE,warning=FALSE,message=FALSE, comment=NA,null_prefix=TRUE}
+```{r,echo=TRUE,warning=FALSE,message=FALSE, comment=NA,null_prefix=TRUE}
+
 
 #i create a copy of training(edx) and validation sets where i retain only userId, movieId and rating features. i rename the three columns.
 
@@ -1444,6 +1455,7 @@ scores_pred <- scan(pred_file)
 
 # remove edx.copy and valid.copy objects
 rm(edx.copy, valid.copy)
+
 
 rmse_mf_opt <- RMSE(scores_real,scores_pred)
 
