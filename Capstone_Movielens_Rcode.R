@@ -2,7 +2,7 @@
 #Capstone1 :MovieLens project
 #repository link : https://github.com/Mono33/MovieLensProject
 
-##############################################################################################################
+#######################################################################################################################################
 
 #This in a R code which generates predicted ratings and RMSE evaluations for the MovieLens project.
 
@@ -14,7 +14,7 @@
 
 #but you also find:
 #-EnvCapstone_MatrixFacto_trainRmse.RData which contains the first 30 iterations(trains recommender model) with rmse values for the optimized Matrix factorization.
-#-EnvCapstone_Movielens.RData which loads output of Capstone_Movielens_data.R (see report in rmd format  at the provided link)  exceeds 100MB, i didn't commit/push it . To commit large files , we can follow the instructions at this link:  https://git-lfs.github.com/ )
+#-EnvCapstone1.RData which loads output of Capstone_Movielens_data.R (see report in rmd format  at the provided link)  exceeds 100MB, i didn't commit/push it . To commit large files , we can follow the instructions at this link:  https://git-lfs.github.com/ )
 
 ##I.---------------------------------Section I: Introduction --------------------------------------------------------------------------
 
