@@ -1,22 +1,20 @@
 #Author : Louis Mono
 #Capstone1 :MovieLens project
+#repository link : https://github.com/Mono33/MovieLensProject
 
 ##############################################################################################################
 
 #This in a R code which generates predicted ratings and RMSE evaluations for the MovieLens project.
 
-#The following descriptions are also available on my github page : https://mono33.github.io/MovieLensProject/ 
-
 
 #In my repository, except this Capstone_Movielens_Rcode, you have the following files: 
 #-Capstone_Movielens_data.R  which is the provided code for generating edx and validation sets
 #-PDFReport_Movielens.pdf :  Movielens report in pdf format ( download it on your pc)
-#- HTMLReport_Movielens.Rmd  : Movielens report in rmd file ;  you find the notebook here: https://mono33.github.io/MovieLensProject/ 
+#-Report_Movielens.Rmd  : Movielens report in rmd file ;  you find the notebook here: https://mono33.github.io/MovieLensProject/ 
 
 #but you also find:
-#-EnvCapstone_Movielens.RData  which is the saving Rdata image of the Capstone_Movielens_data.R ( large file > 100MB then i didn't commit)
+#-EnvCapstone_Movielens.RData  which is the saving Rdata image of the Capstone_Movielens_data.R ( large file > 100MB then i didn't commit it )
 #-EnvCapstone_MatrixFacto_trainRmse.RData which contains the first 30 iterations(trains recommender model) with rmse values for the optimized Matrix factorization.
-
 
 
 ##I.---------------------------------Section I: Introduction --------------------------------------------
