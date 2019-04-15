@@ -4,7 +4,7 @@ author: "Louis Mono"
 date: "March, 2019"
 output:
   html_document:
-    theme: ceruleangit ch
+    theme: cerulean
     highlight: pygments
     bibliography: bibliography.bib
     csl: biomed-central.csl
