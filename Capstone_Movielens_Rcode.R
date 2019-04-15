@@ -10,20 +10,19 @@
 #In my repository, except this Capstone_Movielens_Rcode, you have the following files: 
 #-Capstone_Movielens_data.R  which is the provided code for generating edx and validation sets
 #-PDFReport_Movielens.pdf :  Movielens report in pdf format ( download it on your pc)
-#-Report_Movielens.Rmd  : Movielens report in rmd file ;  you find the notebook here: https://mono33.github.io/MovieLensProject/ 
+#-Report in rmd format here: https://mono33.github.io/MovieLensProject/  ( Report_Movielens.Rmd is the rmd file that generated it )
 
 #but you also find:
-#-EnvCapstone_Movielens.RData  which is the saving Rdata image of the Capstone_Movielens_data.R ( large file > 100MB then i didn't commit it )
 #-EnvCapstone_MatrixFacto_trainRmse.RData which contains the first 30 iterations(trains recommender model) with rmse values for the optimized Matrix factorization.
+#-EnvCapstone_Movielens.RData which loads output of Capstone_Movielens_data.R (see report in rmd format  at the provided link)  exceeds 100MB, i didn't commit/push it . To commit large files , we can follow the instructions at this link:  https://git-lfs.github.com/ )
 
-
-##I.---------------------------------Section I: Introduction --------------------------------------------
+##I.---------------------------------Section I: Introduction --------------------------------------------------------------------------
 
 #text on pdf and .rmd file
 
 ##II. ------------------------------- Section 2: Dataset and executive summary ----------------------------------------------------------
 
-#1. Overview --------------------------------------------------------------------------------------
+#1. Overview --------------------------------------------------------------------------------------------------------------------------
 
 #load libraries
 library(tidyverse)
@@ -89,7 +88,7 @@ glimpse(edx)
 glimpse(validation)
 
 
-# 2. Data exploration --------------------------------------------------------------------------------
+# 2. Data exploration -----------------------------------------------------------------------------------------------------------
 
 #outcome, rating.
 
@@ -804,13 +803,6 @@ gbdt_3 <- h2o.gbm( x = c("movieId","userId") ,
 
 summary(gbdt_3)
 
-#third gbm model :  ntrees = 50, max depth = 5, learn rate = 0.1 , nfolds = 3 
-gbdt_3 <- h2o.gbm( x = c("movieId","userId") ,
-                   y = "rating" , 
-                   training_frame = train , 
-                   nfolds = 3) 
-
-summary(gbdt_3)
 
 
 #Since the model gbdt_3  has the lower RMSE on training set,   
@@ -977,7 +969,7 @@ scores_pred <- scan(pred_file)
 rm(edx.copy, valid.copy)
 
 #rmse - increasing performance MF method
-rmse_mf_opt <- sqrt(mean((scores_real-scores_pred) ^ 2))
+rmse_mf_opt <- RMSE(scores_real,scores_pred)
 rmse_mf_opt  
 
 
