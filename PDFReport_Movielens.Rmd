@@ -132,6 +132,8 @@ library(h2o)
 #Load data
 load("EnvCapstone1.RData")   #Load output of Capstone_Movielens_data.R
 
+#or you can just replace it with the entire  Capstone_Movielens_data.R code 
+
 ```
 
 
