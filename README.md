@@ -1,2 +1,3 @@
-# MovieLensProject
-Capstone_MovieLensProject : Examine the potential best recommender system algorithm to predict movie ratings for the 10M version of the Movielens data.
+# HarvardX: PH125.9x Data science
+## Capstone_MovielensProject
+Recommender systems: Examine the potential best Machine learning algorithm to predict movie ratings for the 10M version of the Movielens data.
